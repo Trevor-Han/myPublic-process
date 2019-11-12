@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <style>
+        body{
+            background: #f5f5f5;
+        }
+        #map{
+            width: 600px;
+            height: 500px;
+            margin: 500px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+    $(function () {
+        let myCharts = echarts.init(document.getElementById('map'));
+
+        let data1 = [];
+        let data2 = [];
+        let data3 = [];
+
+        let random = function (max) {
+            return (Math.random() * max).toFixed(3);
+        };
+
+        for (let i = 0; i < 100; i++) {
+            data1.push([random(15), random(10), random(1)]);
+            data2.push([random(10), random(10), random(1)]);
+            data3.push([random(15), random(10), random(1)]);
+        }
+
+
+        let option = {
+            legend: {
+                data: ['scatter', 'scatter2', 'scatter3']
+            },
+            tooltip: {
+            },
+            xAxis: {
+                type: 'value',
+                min: 'dataMin',
+                max: 'dataMax',
+                splitLine: {
+                    show: true
+                }
+            },
+            yAxis: {
+                type: 'value',
+                min: 'dataMin',
+                max: 'dataMax',
+                splitLine: {
+                    show: true
+                }
+            },
+            dataZoom: [
+                {   // 这个dataZoom组件，默认控制x轴。
+                    type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                    show: true,
+                    xAxisIndex:[0],
+                    start: 10,      // 左边在 10% 的位置。
+                    end: 60         // 右边在 60% 的位置。
+                },
+                {
+                    type: 'inside',
+                    xAxisIndex: [0],
+                    start: 10,
+                    end: 60
+                },
+                {
+                    type: 'slider',
+                    show: true,
+                    yAxisIndex: [0],
+                    start: 30,
+                    end: 80
+                },
+                {
+                    type: 'inside',
+                    yAxisIndex: [0],
+                    start: 30,
+                    end: 80
+                },
+            ],
+            series: [
+                {
+                    name: 'scatter',
+                    type: 'scatter', // 这是个『散点图』
+                    itemStyle: {
+                        normal: {
+                            opacity: 0.8
+                        }
+                    },
+                    symbolSize: function (val) {
+                        return val[2] * 40;
+                    },
+                    data:data1,
+                },
+                {
+                    name: 'scatter2',
+                    type: 'scatter', // 这是个『散点图』
+                    itemStyle: {
+                        normal: {
+                            opacity: 0.8
+                        }
+                    },
+                    symbolSize: function (val) {
+                        return val[2] * 40;
+                    },
+                    data:data2,
+                },
+                {
+                    name: 'scatter3',
+                    type: 'scatter', // 这是个『散点图』
+                    itemStyle: {
+                        normal: {
+                            opacity: 0.8
+                        }
+                    },
+                    symbolSize: function (val) {
+                        return val[2] * 40;
+                    },
+                    data:data3,
+                }
+            ]
+        };
+
+        myCharts.setOption(option);
+    });
+</script>
+</body>
+</html>
