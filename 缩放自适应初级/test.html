@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-color: #000000;
+            overflow-x: hidden;
+            margin: 0 auto;
+        }
+        video{
+            display: block;
+            width: 100%;
+            transition-duration: 2s;
+        }
+        #vi{
+            width: 900px;
+            height: 707px;
+            transition-duration: 2s;
+            margin: 0 auto;
+        }
+        .sell{
+            display: table;
+            width: 62.5%;
+            height: 200px;
+            margin: 0 auto;
+            background: #000000;
+        }
+    </style>
+    <script src="js/hm.js"></script>
+    <script>
+        (function() {
+        let hm = document.createElement("script");
+        hm.src = "js/hm.js";
+        let s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+</head>
+<body>
+    <!--<video id="video" src="chuying.mp4" autoplay="true" loop="loop" preload="auto"  style="position:absolute;"></video>-->
+     <div id="vi">
+         <video autoplay="autoplay" muted src="img/chuying.mp4" loop="loop"></video>
+     </div>
+    <div class="vi">
+        <video autoplay="autoplay" muted src="img/chuying.mp4" loop="loop"></video>
+    </div>
+    <div class="vi">
+        <video autoplay="autoplay" muted src="img/chuying.mp4" loop="loop"></video>
+    </div>
+    <div class="vi">
+        <video autoplay="autoplay" muted src="img/chuying.mp4" loop="loop"></video>
+    </div>
+    <div class="vi">
+        <video autoplay="autoplay" muted src="img/chuying.mp4" loop="loop"></video>
+    </div>
+    <div class="sell"></div>
+ <!--   <script>
+        let stageWidth,stageHeight,stageScale;
+        let video = document.getElementById("vi");
+
+
+        window.onresize = function(){
+            resize();
+        };
+        resize();
+
+        function resize()
+        {
+            let wid;
+            let hei;
+            if(stageWidth!=document.documentElement.clientWidth||stageHeight!= document.documentElement.clientHeight)
+            {
+                stageWidth =  document.documentElement.clientWidth;
+                stageHeight = document.documentElement.clientHeight;
+
+                if(stageWidth/stageHeight < 1920/1200)
+                {
+                    stageScale = stageHeight/1200;
+                    video.style.left = (stageWidth - 1920*stageScale)/2 + 'px';
+                    video.style.top = 0 + 'px';
+                }
+                else
+                {
+                    stageScale = stageWidth/1920;
+                    video.style.left = 0 + 'px';
+                    video.style.top = (stageHeight - 1200*stageScale)/2 + 'px';
+                }
+                wid = 1920*stageScale;
+                hei = 1200*stageScale;
+                video.style.width =wid + 'px';
+                video.style.height = hei + 'px';
+            }
+        }
+    </script>-->
+       <script>
+           let stageWidth,stageHeight,stageScale;
+           let video = document.getElementById("vi");
+
+           function resize()
+           {
+               let wid;
+               let hei;
+               let bWidth = (document.documentElement.clientWidth)*0.7;
+               let bHeight = (document.documentElement.clientHeight)*0.7;
+
+               if(stageWidth!=bWidth||stageHeight!= bHeight)
+               {
+                   stageWidth =  bWidth;
+                   stageHeight = bHeight;
+
+                   if(stageWidth/stageHeight < 1920/1080)
+                   {
+                       stageScale = stageHeight/1080;
+                       video.style.left = (stageWidth - 1920*stageScale)/2 + 'px';
+                       video.style.top = 0 + 'px';
+                   }
+                   else
+                   {
+                       stageScale = stageWidth/1920;
+                       video.style.left = 0 + 'px';
+                       video.style.top = (stageHeight - 1080*stageScale)/2 + 'px';
+                   }
+                   wid = 1900*stageScale;
+                   hei = 1080*stageScale;
+                   video.style.width =wid + 'px';
+                   video.style.height = hei + 'px';
+               }
+           }
+
+           window.onresize = function(){
+               resize();
+           };
+           resize();
+
+       </script>
+</body>
+</html>
